@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Product+Sans" rel="stylesheet" type="text/css">
+	  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+		<meta charset="utf-8">
+	<title>
+		Project-z login
+	</title>
+	<style>
+		@font-face {
+		  font-family: 'Material Icons';
+		  font-style: normal;
+		  font-weight: 400;
+		  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+		  src: local('Material Icons'),
+		       local('MaterialIcons-Regular'),
+		       url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+		       url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+		       url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+		}
+		.material-icons {
+			color:#4285F4;
+		  font-family: 'Material Icons';
+		  font-weight: normal;
+		  font-style: normal;
+		  font-size: 26px;
+		  display: inline-block;
+		  line-height: 1;
+		  -webkit-font-smoothing: antialiased;
+		  text-rendering: optimizeLegibility;
+		  -moz-osx-font-smoothing: grayscale;
+		  font-feature-settings: 'liga';
+		}
+		body, html, main{
+			font-family: 'Product Sans', 'Source Sans Pro';
+			height: 100%;
+			width: 100%;
+			margin: 0px;
+
+		}
+
+		.start{
+			width: 100%;
+			padding: 3px;
+			padding-right: 0px;
+			padding-left: 0px;
+			box-shadow: 2px 2px 4px rgba(0,0,0,.6);
+		}
+		h2{
+			display: inline-block;
+			color : #4285F4;
+		}
+		a{
+			text-decoration: none;
+			color : #4285F4;
+		}
+		.to_search {
+			position: absolute;
+			top:3px;
+			right: 10px;
+			display: inline-block;
+		}
+		.cin{
+			height: 250px;
+			width: 450px;
+			resize: none;
+			border: 2px white solid;
+			background-color: #4285F4;
+			color:white;
+			font-size: 1.4em;
+		}
+		.search{
+			width: 100%;
+			padding-top: 60px;
+			padding-bottom: 30px;
+			background-color: #4285F4;
+			margin: 0px;
+		}
+		.search_box{
+			background-color: #4285F4;
+			margin: auto;
+		}
+		.search_submit{
+			background-color: #4285F4;
+			margin: auto;
+			padding: 20px;
+			padding-bottom: 10px;
+			font-size: 1.4em;
+			border-bottom: 2px #4285F4 solid;
+			border-top: 0px white solid;
+			border-right: 0px white solid;
+			border-left: 0px white solid;
+			color: white;
+			display: block;
+			transition: .3s cubic-bezier(.64,.09,.08,1);
+		}
+		.search_submit:hover{
+			background-color: #4285F4;
+			border-bottom: 2px white solid;
+			border-top: 0px white solid;
+			border-right: 0px white solid;
+			border-left: 0px white solid;
+			color: white;
+			transition: .3s cubic-bezier(.64,.09,.08,1);
+		}
+		.say{
+			width: 450px;
+			padding: 10px;
+			background-color: rgb(235, 238, 240);
+			color : rgb(70, 90, 99);
+			box-shadow: 0 0 7px rgba(0,0,0,0.5);
+			margin: 12px;
+			font-size: 1.2em;
+			border-radius: 10px;
+			text-align: justify;
+			word-wrap: break-word;
+		}
+		.checkbox {
+		  vertical-align: top;
+		  margin: 0 3px 0 0;
+		  width: 17px;
+		  height: 17px;
+		}
+		.checkbox + label {
+		  cursor: pointer;
+		}
+		.checkbox:not(checked) {
+		  position: absolute;
+		  opacity: 0;
+		}
+		.checkbox:not(checked) + label {
+		  position: relative;
+		  padding: 0 0 0 60px;
+		}
+		.checkbox:not(checked) + label:before {
+		  content: '';
+		  position: absolute;
+		  top: -4px;
+		  left: 0;
+		  width: 40px;
+		  height: 16px;
+			border: 5px solid #4285F4;
+		  border-radius: 13px;
+		  background: #b3b3b3;
+		}
+		.checkbox:not(checked) + label:after {
+		  content: '';
+		  position: absolute;
+		  top: -2px;
+		  left: 2px;
+		  width: 22px;
+		  height: 22px;
+		  border-radius: 10px;
+		  background: rgb(243, 243, 243);
+		  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+		  transition: all .2s;
+		}
+		.checkbox:checked + label:before {
+		  background: #ff5349;
+		}
+		.checkbox:checked + label:after {
+		  left: 26px;
+			background: #EA4335;
+		}
+		.checkbox:focus + label:before {
+		  box-shadow: 0 0 0 3px rgba(255,255,0,.5);
+		}
+		.error{
+			padding: 10px;
+			font-size: 1.3em;
+			color: red;
+		}
+		.menu{
+			position: fixed;
+			width: 450px;
+			height: 98%;
+			left:-438px;
+			bottom: 1%;
+			background-color: rgba(235, 238, 240, 0.92);
+			text-align: justify;
+			padding: 0px;
+			margin: 0px;
+			box-shadow: 0 0 16px rgba(0,0,0,0.6);
+			border-radius: 10px;
+			font-size: 1.2em;
+			transition: .6s;
+		}
+		.menu:hover{
+			position: fixed;
+			width: 450px;
+			height: 98%;
+			border-radius: 10px;
+			left:0px;
+			background-color: rgba(235, 238, 240, 0.92);
+			color : rgb(70, 90, 99);
+			box-shadow: 0 0 16px rgba(0,0,0,0.6);
+			font-size: 1.2em;
+			text-align: justify;
+			transition: .6s;
+		}
+		.menu > h2{
+			color: rgb(70, 90, 99);
+			margin: 0px;
+			padding: 0px;
+			position: absolute;
+			top: 48%;
+			right : -7px;
+			transition: .6s;
+		}
+		.menu:hover > h2{
+			margin: 0px;
+			padding: 0px;
+			position: absolute;
+			font-size: 0px;
+			transition: .4s;
+			transition-delay:.2s;
+		}
+		.menu_info{
+			width: 450px;
+			height: 100%;
+			margin: 0px;
+		}
+		.ind_menu{
+			margin: 15px;
+			padding: 0px;
+		}
+		.ind_menu>h2{
+			margin: auto;
+			padding: 0px;
+		}
+		.hello_user{
+			margin: 10px;
+			padding: 0px;
+		}
+		.hello_user>h2 {
+			margin: auto;
+			padding: 0px;
+			color : rgb(70, 90, 99);
+		}
+		.hello_user>h3 {
+			margin: auto;
+			padding: 0px;
+			color : rgb(70, 90, 99);
+		}
+		hr{
+			color: rgb(70, 90, 99);
+			width: 80%;
+			margin-top: 15px;
+			margin-bottom: 15px;
+			border: .5px solid rgb(70, 90, 99);
+		}
+		.designer_name{
+			position: absolute;
+			bottom: 0px;
+			width: 430px;
+			border-radius: 10px;
+			padding: 10px;
+			font-size: 1.1em;
+			text-align: center;
+			background-color: rgb(70, 90, 99);
+			color : rgba(235, 238, 240, 0.92);
+		}
+		.designer_name_ok{
+			position: absolute;
+			bottom: 35px;
+			width: 450px;
+			height: 10px;
+			background-color: rgb(70, 90, 99);
+		}
+		.user_icon > h2{
+			font-size: 34px;
+			margin: auto;
+			color: rgb(70, 90, 99);
+			padding: 0px;
+		}
+		.version{
+			position: absolute;
+			bottom: 45px;
+			padding: 10px;
+			width: 450px;
+			padding-left: 0px;
+			padding-right: 0px;
+			text-align: center;
+			color: rgb(70, 90, 99);
+		}
+		.menu_text{
+			margin: 10px;
+			padding: 0px;
+			width: 80%;
+			text-align: justify;
+		}
+		main{
+			background-color: #4285F4;
+			position: absolute;
+			top: 0px;
+			width: 100%;
+		}
+	</style>
+	</head>
+<body>
+	<div class="start">
+		<div class="to_search">
+			<a href = "project-x_search.html">
+				<h2 class="material-icons">search</h2>
+			</a>
+		</div>
+		<center>
+			<h2>Notes</h2>
+		</center>
+	</div>
+	<main>
+
+	</main>
+</body>
+</html>
